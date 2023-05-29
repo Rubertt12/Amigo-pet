@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encontre um Amigo - Home</title>
+  <link rel="stylesheet" type="text/css" href="/style/style.css" media="screen" />
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+ <link rel="shortcut icon" href="/favicon/paw.png" type="image/x-con"/>
+
+  <script>
+     document.addEventListener("DOMContentLoaded", function() {
+      var currentSlide = 0;
+      var slides = document.querySelectorAll(".carousel-slide");
+
+      function showSlide(n) {
+        slides.forEach(function(slide) {
+          slide.classList.remove("active");
+        });
+        slides[n].classList.add("active");
+      }
+
+      function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+          currentSlide = 0;
+        }
+        showSlide(currentSlide);
+      }
+
+      setInterval(function() {
+        nextSlide();
+      }, 2000);
+
+      showSlide(currentSlide);
+    });
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+  
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocalização não suportada pelo seu navegador.");
+      }
+    }
+
+    function showPosition(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const geocoder = new google.maps.Geocoder();
+
+      const latlng = {
+        lat: latitude,
+        lng: longitude
+      };
+
+      geocoder.geocode({ 'location': latlng }, function(results, status) {
+        if (status === 'OK') {
+          if (results[0]) {
+            const address = results[0].formatted_address;
+            alert("Você está na seguinte localização: " + address);
+          } else {
+            alert("Nenhum resultado encontrado.");
+          }
+        } else {
+          alert("Falha ao buscar a localização: " + status);
+        }
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwPRYMMjVzkmmpnyjl92_Mcs4Fgqc1ZQI&libraries=places" async defer></script>
+    
+
+  </script>
+
+</head>
+<body>
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Animais Perdidos</a>
+    <a href="#">Animais para Adoção</a>
+    <a href="#">Relatar Animal</a>
+
+  
+
+  </div>
+
+
+  
+ 
+
+  <div class="content">
+    <h1>Bem-vindo ao Encontre um Amigo</h1>
+    <p>Encontre e ajude animais de rua a encontrarem um lar amoroso. Nossa plataforma permite que você visualize animais perdidos ou disponíveis para adoção. Você pode filtrar os animais com base na localização, espécie e idade para encontrar o companheiro perfeito. Ao clicar em um animal, você terá acesso a informações detalhadas, como fotos, descrição, localização e dados de contato da organização responsável.</p>
+    <p>Você também pode contribuir relatando animais de rua que encontrar. Tire fotos do animal, forneça informações sobre a localização e ajude as ONGs a localizá-los e prestar assistência. Além disso, você pode compartilhar animais perdidos ou disponíveis para adoção em suas redes sociais, como WhatsApp, Facebook e Instagram, para aumentar as chances de encontrar um lar para eles.</p>
+    <p>Junte-se a nós e faça a diferença na vida dos animais de rua. Vamos encontrar um amigo juntos!</p>
+  </div>
+  <button class="get-location-button" onclick="getLocation()">Obter Localização</button>
+    <p id="location"></p>
+
+
+  <div class="highlight-section">
+    <h2>Animais Adotados</h2>
+    <p>Confira alguns animais que encontraram um lar feliz!</p>
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="https://www.petz.com.br/blog/wp-content/uploads/2020/03/animais-de-rua-pet.jpg" alt="Animal Adotado 1">
+      </div>
+      <div class="carousel-slide">
+        
+        <img src="data:image/jpeg;base64,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" alt="Animal Adotado 4">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://patrocinados.estadao.com.br/portal-animal/wp-content/uploads/sites/8/2018/12/GettyImages-905405206-630x420.jpg" alt="Animal Adotado 6">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://totosdatete.org.br/wp-content/uploads/2021/06/capa-site-1.jpg" alt="Animal Adotado 2">
+      </div>
+     
+    </div>
+  </div>
+
+  
+  
+  <div class="footer">
+    <footer>
+      <img  style ="width: 70px;"src="/imagem/caramelo-rindo.gif">
+      <br>
+      &copy; 2023 Resgate de Animais. Todos os direitos reservados.
+      <br>
+    
+    </footer>
+    <div class="social-icons">
+      <p style="font-size:large;color: green;">Redes Sociais</p>
+      <a href="https://api.whatsapp.com/send?phone=5551999298632" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
+      <a href="https://www.facebook.com/ruberttyIasmin" target="_blank"><i class="fab fa-facebook-square fa-lg"></i></a>
+      <a href="https://www.instagram.com/ruberttdasilva" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+    </div>
+     <footer>
+  
+  </footer>
+  </div>
+</body>
+</html>

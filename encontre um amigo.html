@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encontre um Amigo - Home</title>
+  <link rel="stylesheet" type="text/css" href="/style/style.css" media="screen" />
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+
+  <script>
+     document.addEventListener("DOMContentLoaded", function() {
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(
+              position.coords.latitude,
+              position.coords.longitude
+            );
+
+            geocoder.geocode({ location: latlng }, function(results, status) {
+              if (status === "OK") {
+                if (results[0]) {
+                  var address = results[0].formatted_address;
+                  showPhotoAndLocation(address);
+                } else {
+                  alert("Endereço não encontrado.");
+                }
+              } else {
+                alert("Erro ao obter o endereço: " + status);
+              }
+            });
+          });
+        } else {
+          alert("Geolocalização não é suportada pelo seu navegador.");
+        }
+      }
+
+      function showPhotoAndLocation(address) {
+        var photoContainer = document.getElementById("photo-container");
+        var img = document.createElement("img");
+        img.src = "caminho/para/foto.jpg";
+        photoContainer.innerHTML = "";
+        photoContainer.appendChild(img);
+
+        var locationContainer = document.getElementById("location");
+        locationContainer.textContent = "Localização: " + address;
+      }
+
+      document.getElementById("take-photo-btn").addEventListener(
+        "click",
+        function() {
+          getLocation();
+        }
+      );
+    });
+    
+
+  </script>
+
+</head>
+<body>
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Animais Perdidos</a>
+    <a href="#">Animais para Adoção</a>
+    <a href="#">Relatar Animal</a>
+  </div>
+  
+  <button onclick="getLocation()">Obter Localização</button>
+  <p id="location"></p>
+
+
+  <div class="content">
+    <h1>Bem-vindo ao Encontre um Amigo</h1>
+    <p>Encontre e ajude animais de rua a encontrarem um lar amoroso. Nossa plataforma permite que você visualize animais perdidos ou disponíveis para adoção. Você pode filtrar os animais com base na localização, espécie e idade para encontrar o companheiro perfeito. Ao clicar em um animal, você terá acesso a informações detalhadas, como fotos, descrição, localização e dados de contato da organização responsável.</p>
+    <p>Você também pode contribuir relatando animais de rua que encontrar. Tire fotos do animal, forneça informações sobre a localização e ajude as ONGs a localizá-los e prestar assistência. Além disso, você pode compartilhar animais perdidos ou disponíveis para adoção em suas redes sociais, como WhatsApp, Facebook e Instagram, para aumentar as chances de encontrar um lar para eles.</p>
+    <p>Junte-se a nós e faça a diferença na vida dos animais de rua. Vamos encontrar um amigo juntos!</p>
+  </div>
+
+  <button id="take-photo-btn">Tirar Foto</button>
+    <div id="photo-container" class="highlight-section">
+      <!-- Aqui será exibida a foto capturada pela câmera -->
+    </div>
+    <p id="location"></p>
+  </div>
+
+  <div class="highlight-section">
+    <h2>Animais Adotados</h2>
+    <p>Confira alguns animais que encontraram um lar feliz!</p>
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWGRO1wKUMm1et5wE4y5tFatvwU9HeIxyhXQ&usqp=CAU" alt="Animal Adotado 1">
+      </div>
+      <div class="carousel-slide">
+        
+        <img src="https://jpimg.com.br/uploads/2020/10/cat-528386_1280.jpg" alt="Animal Adotado 4">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://www.petz.com.br/blog/wp-content/uploads/2022/07/feneco-interna-1.jpg" alt="Animal Adotado 6">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJoigA4AmPCNkuHCTrXoAhMnvrXkP-Ob06Sw&usqp=CAU" alt="Animal Adotado 2">
+      </div>
+     
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2023 Encontre um Amigo. Todos os direitos reservados.
+    <div class="social-icons">
+      <a href="https://api.whatsapp.com/send?phone=5551999298632" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
+      <a href="https://www.facebook.com/ruberttyIasmin" target="_blank"><i class="fab fa-facebook-square fa-lg"></i></a>
+      <a href="https://www.instagram.com/ruberttdasilva" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+    </div>
+  </div>
+</body>
+</html>
