@@ -6,7 +6,177 @@
   <title>Encontre um Amigo - Home</title>
   <link rel="stylesheet" type="text/css" href="/style/style.css" media="screen" />
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+ <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-top: 50px; 
+  }
+  
+  .navbar {
+    background: linear-gradient(#333333, #222222);
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: font-size 0.3s, color 0.3s;
+    
+  }
+  
+  .navbar a:hover {
+    font-size: 18px;
+    color: #26e756;
+  }
+  
+  .content {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .highlight-section {
+    background-color: #555555; /* Cor mais escura para o fundo da seção em destaque */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .highlight-section .carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .highlight-section .carousel-slide {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .highlight-section .carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+  }
+  
+  .highlight-section .carousel-slide img:last-child {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .highlight-section .carousel-slide.active img:last-child {
+    left: 0;
+    opacity: 1;
+  }
+  
+  .footer {
+    background: linear-gradient(#222222, #333333);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .footer .social-icons {
+    margin-top: 10px;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+   
+  }
+  
+  .footer .description {
+    margin-top: 10px;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  .footer .social-icons {
+    margin-left: auto;
+    text-align: end;
+    margin-top: 150px;
+    text-decoration: none;
+  }
+  
+  .footer .social-icons a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: font-size 0.3s, color 0.3s;
+  }
+  
+  .footer .social-icons a.facebook-icon {
+    background-image: url("caminho-para-sua-logo-do-facebook.png");
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+  }
+  
+  .footer .social-icons a.instagram-icon {
+    background-image: url("caminho-para-sua-logo-do-instagram.png");
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    
+  }
+  
+  .footer .description {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
 
+   /* Estilos personalizados para o botão "Obter Localização" */
+   .get-location-button {
+    background-color: #27482f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+    font-weight:bold;
+  }
+    
+  
+  
+  .get-location-button:hover {
+    background-color: #1fae4d;
+    font-weight:bold;
+  }
+  
+  .get-location-button:focus {
+    outline: none;
+    text-align: end;
+    
+
+  }
+
+  
+</stye>
 
   <script>
      document.addEventListener("DOMContentLoaded", function() {
